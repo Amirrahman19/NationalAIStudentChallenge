@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="zxx">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<title>SPAI- Human Counter</title>
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+	<!-- bootstrap.min css -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+		integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+		crossorigin="anonymous"></script>
+		
+
+	<!-- Icon Font Css -->
+	<!-- <link rel="stylesheet" href="https://allyoucan.cloud/cdn/icofont/1.0.1/icofont.css"
+		integrity="sha384-jbCTJB16Q17718YM9U22iJkhuGbS0Gd2LjaWb4YJEZToOPmnKDjySVa323U+W7Fv" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="./plugins/icofont/icofont.min.css">
+
+	<!-- Ajax axios -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.26.3/apexcharts.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Slick Slider  CSS -->
+
+	<!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+	<!-- Main Stylesheet -->
+
+
+</head>
+
+<body id="top">
+
+	<header>
+		<div class="header-top-bar">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="logo-row">
+						<a href="https://industry.sp.edu.sg/dsac/spai/">
+						<img src="images/SPAI-logo.png" alt="SPAI" class="logo center">
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+
+
+
+	<!-- Slider Start -->
+	<section class="banner">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12 col-xl-7">
+					<div class="block">
+						<div class="divider mb-3"></div>
+						<span id="description"
+							class="text-uppercase text-sm letter-spacing text-white font-weight-bold">Detect the amount
+							of human traffic moving in and out of a bounded region at any given time.</span>
+						<h1 class="spaiheader mb-3 mt-3" id="spaiheader">SPAI Human Counter</h1>
+
+						<div class="select">
+							<select id="setFoodCourt">
+								<!-- <option selected disabled value="fc1">Select a Location</option> -->
+								<option disabled value="fc1">Food Court 1</option>
+								<option disabled value="fc2">Food Court 2</option>
+								<option disabled value="fc3">Food Court 3</option>
+								<option disabled value="fc4">Food Court 4</option>
+								<option disabled value="fc5">Food Court 5</option>
+								<option selected value="fc6">Food Court 6</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="features">
+		<div class="container">
+
+
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="feature-block d-lg-flex">
+
+						<div class="feature-item mb-5 mb-lg-0">
+							<div class="feature-icon mb-4">
+								<i class="icofont-foot-print"></i>
+							</div>
+							
+							<span>Head Count</span>
+							<h4 class="mb-3">Current number of visitors</h4>
+							<div id="CurrentFootfall" class="col p-4 mb-4">
+								<!-- <h2>38</h2> -->
+							</div>
+							<a href="#history" class="btn btn-main btn-round-full">View Past Statistics</a>
+						</div>
+
+						<div class="feature-item mb-5 mb-lg-0">
+							<div class="feature-icon mb-4">
+								<i class="icofont-lunch"></i>
+							</div>
+							<span>Based on the latest footfall</span>
+							<h4 class="mb-5">Current crowd level</h4>
+							<div class="mb-4" id="crowdLevel">
+
+							</div>
+							<ul class="w-hours list-unstyled">
+
+								<li class="d-flex justify-content-between" >Estimated Num of seats available :
+									<div id="NumOfSeat"></div>
+								</li>
+								
+							</ul>
+						</div>
+
+						<div class="feature-item mb-5 mb-lg-0">
+							<div class="feature-icon mb-4">
+								<i class="icofont-robot"></i>
+							</div>
+							<span>Suggestion based on the statistics</span>
+							<h4 class="mb-3">Recommendation</h4>
+							<div id="recommend" class="col p-4 mb-4">
+								<!-- <h2>38</h2> -->
+							</div>
+						
+						<span id="recommendtogo"></span>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</section>
+
+	<section>
+		<div class="container mb-5 mt-5" id="history">
+			<h1 class="mb-3 mt-3" id="graph">History Statistics</h1>
+			<div id="chart"></div>
+		</div>
+	</section>
+
+
+	<!-- footer Start -->
+	<footer class="footer section gray-bg">
+
+
+	</footer>
+
+
+
+	<!-- 
+    Essential Scripts
+    =====================================-->
+
+	<!-- <link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css”> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- <script src=”https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js”></script> -->
+	<!-- Main jQuery -->
+	<!-- <script src="../front_end/plugins/jquery/jquery.js"></script> -->
+	<!-- Bootstrap 4.3.2 -->
+
+
+
+
+
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+		
+			axios.get(`https://spai-human-counter-backend-api.herokuapp.com/latest/fc6/9`)
+			.then((response) => {
+				const history = response.data;
+				console.log(history);
+				var Footfall = []
+				const byTime = {}
+
+
+				for(let hr = 8; hr <= 17; hr ++){
+					temp = hr.toString()
+					while (temp.length < 2) {
+						temp = '0' + temp;
+					}
+					byTime[temp] = []
+					for(let day = 14; day >= 0; day--){
+						today = new Date();
+						today.setDate(today.getDate() - day)
+						// byTime[temp].push({x: today.toDateString(), y:0})
+						byTime[temp].push({x: today.getTime(), y:0})
+						// console.log(today);
+					}
+				}
+				console.log(byTime);
+				for (let i = 0; i < history.length; i++){
+					Footfall.push(history[i].currentfootfall)
+					// Date.push(new Date(history[i].time))
+					today = new Date()
+					today.setHours(0, 0, 0, 0)
+					datetime = history[i].time
+					date = `${datetime.substring(0,4)}-${datetime.substring(4,6)}-${datetime.substring(6,8)}`
+					date = new Date(date)
+					date.setHours(0, 0, 0, 0)
+					timeDiff = today.getTime() - date.getTime()
+					dayDiff = timeDiff / (1000 * 3600 * 24)
+					hours = datetime.substring(8,10)
+
+					// console.log(hours);
+					if(byTime[hours] && ((dayDiff - 14) * -1) >= 0){
+						console.log('here');
+						byTime[hours][(dayDiff - 14) * -1].y = history[i].currentfootfall
+					}
+
+					let series = [];
+					
+					Object.keys(byTime).sort().reverse().forEach(hour => {
+						let time = parseInt(hour);
+						let delim = 'a.m.';
+
+						if (time >= 12) {
+							time = (time > 12) ? time - 12 : time
+							delim = 'p.m.';
+						}
+
+						series.push({name: `${time} ${delim}`, data: byTime[hour]})
+					});
+
+					var options = {
+						series,
+						chart: {
+							height: 450,
+							type: 'heatmap',
+						},
+						dataLabels: {
+							enabled: false
+						},
+						colors: ["#14213d"],
+						title: {
+							text: 'Statistics for the past 14 days'
+						},
+						xaxis: {
+							type: "datetime",
+						},
+						tooltip: {
+							x: {
+								format: "ddd, dd MMM yyyy"
+							}
+						},
+					};
+					
+					// console.log(CurrentFootfall);
+
+				}
+		
+				var chart = new ApexCharts(document.getElementById('chart'), options);
+				chart.render();
+
+				console.log(byTime);
+				})
+				// catch any err
+				.catch((error) => {
+					console.log(error)
+				});
+
+
+	</script>
+
+
+
+
+<!-- <script>
+	var data = {
+		labels = ['0h','1h','2h','3h','4h','5h','6h','7h','8h','9h','10h','11h'],
+		datasets = [
+		{
+			label: 'Monday',
+				data: [8, 6, 5, 7, 9, 8, 1, 6, 3, 3, 8, 7]
+			},
+			{
+				label: 'Tuesday',
+				data: [6, 8, 5, 6, 5, 5, 7, 0, 0, 3, 0, 7]
+			},
+			{
+				label: 'Wednesday',
+				data: [8, 5, 6, 4, 2, 2, 3, 0, 2, 0, 10, 8]
+			},
+			{
+				label: 'Thursday',
+				data: [4, 0, 7, 4, 6, 3, 2, 4, 2, 10, 8, 2]
+			},
+			{
+				label: 'Friday',
+				data: [1, 0, 0, 7, 0, 4, 1, 3, 4, 5, 1, 10]
+			}
+			]
+		};
+		
+		var ctx = document.getElementById('heatmap').getContext('2d');
+		var newChart = new Chart(ctx).HeatMap(data);
+		
+		canvas.onclick = function(evt){
+			var activeBox = chart.getBoxAtEvent(evt);
+	console.log(activeBox.value); // value at point
+	console.log(activeBox.label); // x-axis label
+	console.log(activeBox.datasetLabel); // y-axis label
+};
+</script> -->
+
+
+	
+	<!-- <script>
+	$(document).ready(function(){
+			$.ajax({
+				url: `http://localhost:8081//history/:location/:startTime/:endTime`,
+				type: "post",
+				data: {
+					foodcourt: "Food Court 1"
+				},
+				success: function(heat_map) {
+					$("#divGraph").html(heat_map);
+					$("#graph").chart = new Chart($("#graph"), $("#graph").data("settings"));
+				}
+			});
+	
+			$("#setFoodcourt").change(function(){
+				$.ajax({
+				url: "queries.php",
+				type: "post",
+				data: {
+					foodcourt: $(this).val()
+				},
+				success: function(heat_map) {
+					$("#divGraph").html(heat_map);
+					$("#graph").chart = new Chart($("#graph"), $("#graph").data("settings"));
+				}
+			});
+			})
+		});
+	</script> -->
+	<script>
+		
+		$(document).ready(function () {
+			// const baseURL = "http://localhost:8081";
+			// get current link
+			const url = window.location.toString();
+			
+			// extract locatiom from current link
+			const location = parseInt(url.split("/").slice(-1)[0]);
+			var foodcourt = $('#setFoodCourt').val();
+
+				
+				// get footfall based on location
+			axios.get(`https://spai-human-counter-backend-api.herokuapp.com/latest/fc6`)
+			.then((response) => {
+				const footfall = response.data;
+				var foodcourt = $('#setFoodCourt option:selected').text();
+					// alert('page content: ' + response.data[0]);
+					console.log(footfall.currentfootfall);
+					console.log(foodcourt);
+					// show current footfall
+					var Seats = 100;
+					Seats = Seats-= (footfall.currentfootfall ?? 0)
+					var crowd = (footfall.currentfootfall / Seats) *100
+					// var crowd = 90
+					const Footfall = `<h2>${footfall.currentfootfall ?? "-"}</h2>`
+					const crowdLevel = `<h3>${crowd.toFixed(2) ?? "-"}%</h3>`
+					const NumOfSeat = `<h4>${Seats ?? "-"}</h4>`
+					var recommend;
+					var togo;
+					if (crowd <40) {
+						recommend = 'Yes'
+						togo = `<svg class="w-6 h-6" width="35" fill="#40916c" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>&nbsp Suggested to go`
+						
+					} else if (crowd >= 40 && crowd < 85){
+						recommend = 'Maybe'
+						togo = `<svg class="w-6 h-6" width="35" fill="#f4a261" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>&nbsp Caution`
+						
+					} else {
+						recommend = 'No'
+						
+						togo = `<svg class="w-6 h-6" width="35" fill="#9d0208" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"></path></svg> &nbsp Not suggested to go`
+					}
+					const recommendation = `<h2>${recommend}</h2>`
+					
+					$("#CurrentFootfall").html(Footfall)
+					$("#NumOfSeat").html(NumOfSeat)
+					$('#crowdLevel').html(crowdLevel)
+					$('#recommend').html(recommendation)
+					$('#recommendtogo').html(togo)
+				})
+				// catch any err
+				.catch((error) => {
+					console.log(error)
+				});
+
+			$('#setFoodCourt').change(function() {
+				var foodcourt = $('#setFoodCourt').val();
+				// console.log(foodcourt);
+			axios.get(`https://spai-human-counter-backend-api.herokuapp.com/latest/${foodcourt}`)
+			.then((response) => {
+				const footfall = response.data;
+				console.log(response);
+					// alert('page content: ' + response.data[0]);
+					console.log(footfall.currentfootfall);
+					// show current footfall
+					var Seats = 100;
+					Seats = Seats-= (footfall.currentfootfall ?? 0)
+					var crowd = (footfall.currentfootfall / Seats) *100
+					const Footfall = `<h2>${footfall.currentfootfall ?? "-"}</h2>`
+					const crowdLevel = `<h3>${crowd.toFixed(2) ?? "-"}%</h3>`
+					const NumOfSeat = `<h4>${Seats ?? "-"}</h4>`
+					// append/p repend items
+					
+					$("#CurrentFootfall").html(Footfall)
+					$("#NumOfSeat").html(NumOfSeat)
+					$('#crowdLevel').html(crowdLevel)
+					
+				})
+				// catch any err
+				.catch((error) => {
+					console.log(error)
+				});
+			});
+				
+
+			
+		});
+	</script>
+
+
+</body>
+
+</html>
