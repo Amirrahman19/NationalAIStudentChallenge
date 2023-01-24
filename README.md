@@ -151,3 +151,7 @@ POST `/history`
     location:fc1
     ```
     output: []
+### Dockerize Front end
+cd front_end
+docker build -t front_end .
+docker run -p 5000:5000 front_end 
