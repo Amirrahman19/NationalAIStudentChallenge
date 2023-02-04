@@ -24,4 +24,4 @@ nodes:
 - custom_nodes.draw.drawCentroid
 - output.screen
 - output.media_writer:
-    output_dir: 'C:\Users\amir_\OneDrive - Singapore Polytechnic\VSC\PROGRAMMING\PYTHON\Python\SPAI_HumanCounter\human_counter\media'
+    output_dir: 'D:\National AI Challenge\NationalAIStudentChallenge\human_counter\media'
