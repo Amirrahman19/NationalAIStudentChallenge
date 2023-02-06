@@ -11,7 +11,7 @@ nodes:
 - custom_nodes.dabble.tracker:
     maxDisappeared: 60
 - custom_nodes.dabble.counter:
-    endpoint: "https://spai-human-counter-backend-api.herokuapp.com/history/"
+    endpoint: "https://humancounterfrontend.onrender.com/"
 - dabble.fps
 - draw.bbox
 - custom_nodes.draw.customLegend:
@@ -24,4 +24,4 @@ nodes:
 - custom_nodes.draw.drawCentroid
 - output.screen
 - output.media_writer:
-    output_dir: 'D:\National AI Challenge\NationalAIStudentChallenge\human_counter\media'
+    output_dir: 'C:\Users\amir_\OneDrive - Singapore Polytechnic\VSC\PROGRAMMING\PYTHON\NationalAIStudentChallenge\human_counter\media'
