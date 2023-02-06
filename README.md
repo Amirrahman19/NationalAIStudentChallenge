@@ -5,7 +5,7 @@ Human Entrance Counter is a jointly-collaborated project between [SPAI](https://
 
 The project utilizes [PeekingDuck](https://github.com/aimakerspace/PeekingDuck) with custom nodes for human detection and tracking along with [Express.js](https://expressjs.com/) as backend controller.
 
-![tech-stack.png](assets/tech-stack.png)
+![tech-stack.png](tech-stack.jpg)
 
 
 ## Software Required:
