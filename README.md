@@ -1,5 +1,4 @@
 # Human Entrance Counter with PeekingDuck
-Human Entrance Counter is a jointly-collaborated project between [SPAI](https://www.instagram.com/spai.sp/) and [SP-RITE](https://www.instagram.com/sp.riteclub/) and its aim is to detect the amount of human traffic moving in and out of a bounded region at any given time.
 
 ## Project Overview
 
@@ -18,12 +17,12 @@ The project utilizes [PeekingDuck](https://github.com/aimakerspace/PeekingDuck) 
 1. Clone the Repository with 
     - Git CLI
         ```
-        git clone https://github.com/SPAI-Team/Human-Entrance-Counter.git
+        git clone https://github.com/Amirrahman19/NationalAIStudentChallenge.git
         ```
     - GitHub Desktop App
         1. Add repository
         2. Clone repository
-        3. Input the URL `SPAI-Team/Human-Entrance-Counter`
+        3. Input the URL `NationalAIStudentChallenge`
 2. Setting Up Conda Python Environment
     ```bash
     conda create --name human-entrance python=3.8
