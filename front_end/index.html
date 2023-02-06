@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>SPAI- Human Counter</title>
+	<title>Human Counter</title>
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
@@ -71,7 +71,7 @@
 						<span id="description"
 							class="text-uppercase text-sm letter-spacing text-white font-weight-bold">Detect the amount
 							of human traffic moving in and out of a bounded region at any given time.</span>
-						<h1 class="spaiheader mb-3 mt-3" id="spaiheader">SPAI Human Counter</h1>
+						<h1 class="spaiheader mb-3 mt-3" id="spaiheader">Human Counter</h1>
 
 						<div class="select">
 							<select id="setFoodCourt">
@@ -181,7 +181,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script>
 		
-			axios.get(`https://spai-human-counter-backend-api.herokuapp.com/latest/fc6/9`)
+			axios.get(`https://humancounterbackend.onrender.com`)
 			.then((response) => {
 				const history = response.data;
 				console.log(history);
@@ -362,7 +362,7 @@
 
 				
 				// get footfall based on location
-			axios.get(`https://spai-human-counter-backend-api.herokuapp.com/latest/fc6`)
+			axios.get(`https://humancounterbackend.onrender.com`)
 			.then((response) => {
 				const footfall = response.data;
 				var foodcourt = $('#setFoodCourt option:selected').text();
@@ -408,7 +408,7 @@
 			$('#setFoodCourt').change(function() {
 				var foodcourt = $('#setFoodCourt').val();
 				// console.log(foodcourt);
-			axios.get(`https://spai-human-counter-backend-api.herokuapp.com/latest/${foodcourt}`)
+			axios.get(`https://humancounterbackend.onrender.com/${foodcourt}`)
 			.then((response) => {
 				const footfall = response.data;
 				console.log(response);
